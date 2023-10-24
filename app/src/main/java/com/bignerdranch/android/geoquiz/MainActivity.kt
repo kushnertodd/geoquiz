@@ -33,7 +33,10 @@ class MainActivity : AppCompatActivity() {
         binding.nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
             updateQuestion()
-
+        }
+        binding.prevButton.setOnClickListener {
+            currentIndex = (currentIndex + questionBank.size - 1) % questionBank.size
+            updateQuestion()
         }
         updateQuestion()
     }
