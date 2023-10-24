@@ -30,9 +30,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.trueButton.setOnClickListener { view: View ->
             checkAnswer(true)
+            binding.trueButton.setEnabled(false)
+            binding.falseButton.setEnabled(false)
         }
         binding.falseButton.setOnClickListener { view: View ->
             checkAnswer(false)
+            binding.trueButton.setEnabled(false)
+            binding.falseButton.setEnabled(false)
         }
         binding.nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
