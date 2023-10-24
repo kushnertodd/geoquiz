@@ -30,13 +30,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.trueButton.setOnClickListener { view: View ->
             checkAnswer(true)
-            binding.trueButton.setEnabled(false)
-            binding.falseButton.setEnabled(false)
         }
         binding.falseButton.setOnClickListener { view: View ->
             checkAnswer(false)
-            binding.trueButton.setEnabled(false)
-            binding.falseButton.setEnabled(false)
         }
         binding.nextButton.setOnClickListener {
             currentIndex = (currentIndex + 1) % questionBank.size
@@ -77,6 +73,8 @@ class MainActivity : AppCompatActivity() {
     private fun updateQuestion() {
         val questionTextResId = questionBank[currentIndex].textResId
         binding.questionTextView.setText(questionTextResId)
+        binding.trueButton.setEnabled(true)
+        binding.falseButton.setEnabled(true)
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
@@ -90,5 +88,7 @@ class MainActivity : AppCompatActivity() {
 
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
             .show()
+        binding.trueButton.setEnabled(false)
+        binding.falseButton.setEnabled(false)
     }
 }
