@@ -31,12 +31,10 @@ class MainActivity : AppCompatActivity() {
             checkAnswer(false)
         }
         binding.nextButton.setOnClickListener {
-            //quizViewModel.currentIndex = (currentIndex + 1) % quizViewModel.questionBank.size
             quizViewModel.moveToNext()
             updateQuestion()
         }
         binding.prevButton.setOnClickListener {
-           // quizViewModel.currentIndex = (currentIndex + quizViewModel.questionBank.size - 1) % quizViewModel.questionBank.size
             quizViewModel.moveToPrev()
             updateQuestion()
         }
