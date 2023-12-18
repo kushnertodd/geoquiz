@@ -8,13 +8,16 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.bignerdranch.android.geoquiz"
-        minSdk = 24
-        targetSdk = 33
+        applicationId = "com.bignerdranch.android.geoquiz2"
+        minSdk = 31
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -35,6 +38,14 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
